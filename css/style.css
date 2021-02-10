@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: skyblue;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.search-bar {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar input {
+  width: 250px;
+  height: 30px;
+  outline: none;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.search-bar button {
+  width: 80px;
+  height: 30px;
+  outline: none;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: aliceblue;
+  color: skyblue;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.movies-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.movie-card {
+  width: 200px;
+  height: 250px;
+  background-color: #284478;
+  margin: 20px;
+  padding: 15px;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.movie-card>li {
+  margin: 5px 0;
+}

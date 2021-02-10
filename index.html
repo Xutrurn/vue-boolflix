@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
+  <title>vue-boolflix</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <div class="search-bar">
+      <input type="text" v-model="searchMovies" @keyup.enter="getMovies" placeholder="Cerca un film">
+      <button type="button" @click="getMovies">Search</button>
+    </div>
+    <div class="movies-container">
+      <ul v-for="movie in allMovies" class="movie-card">
+        <li>
+          {{movie.title}}
+        </li>
+        <li>
+          {{movie.original_title}}
+        </li>
+        <li>
+          {{movie.original_language}}
+        </li>
+        <li>
+          {{movie.vote_average}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <script src="js/script.js" charset="utf-8"></script>
+</body>
+
+</html>
