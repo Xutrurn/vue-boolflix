@@ -20,58 +20,82 @@
 <body>
 
   <div id="app">
+
+    <!-- Navbar -->
     <header>
       <section>
-        <div class="">
-          <input v-model="ricerca" @keyup.enter="datiScaricati" type="text" name="" value="" placeholder="Cerca Film e Serie TV">
-          <button @click="datiScaricati">Cerca</button>
+        <div class="navbar">
+          <img class="logo" src="img/logo2.png" alt="">
+          <input v-model="ricerca" @keyup.enter="datiScaricati" type="text" placeholder="Cerca Film e Serie TV">
         </div>
       </section>
     </header>
 
+
     <main>
 
-      <!-- sezione Film -->
-      <div class="film_section">
-        <ul v-for="film in films">
-          <li>{{film.title}}</li>
-          <li>{{film.original_title}}</li>
-          <li>
-            <img v-if="film.original_language == 'en' " src="https://www.countryflags.io/gb/flat/64.png" alt="">
-            <img v-else-if="film.original_language == 'it' " src="https://www.countryflags.io/it/flat/64.png" alt="">
-            <img v-else-if="film.original_language == 'ja' " src="https://www.countryflags.io/jp/flat/64.png" alt="">
-            <img v-else src="https://www.countryflags.io/br/flat/64.png" alt="">
-            <p v-else>lingua: {{film.original_language}} </p>
-          </li>
-          <li>
-            <i v-for="stella in film.stellePiene" class="fas fa-star"></i>
-            <i v-for="stella in (5 - film.stellePiene)" class="far fa-star"></i>
-          </li>
-        </ul>
-      </div>
+      <div class="container">
 
-      <!-- sezione serieTV -->
-      <div class="tvseries_section">
-        <ul v-for="series in tvSeries">
-          <li>{{series.name}}</li>
-          <li>{{series.original_name}}</li>
-          <li>
-            <img v-if="series.original_language == 'en' " src="https://www.countryflags.io/gb/flat/64.png" alt="">
-            <img v-else-if="series.original_language == 'it' " src="https://www.countryflags.io/it/flat/64.png" alt="">
-            <img v-else-if="series.original_language == 'ja' " src="https://www.countryflags.io/jp/flat/64.png" alt="">
-            <img v-else src="https://www.countryflags.io/br/flat/64.png" alt="">
-            <p v-else>lingua: {{series.original_language}} </p>
-          </li>
-          <li>
-            <i v-for="stella in series.stellePiene" class="fas fa-star"></i>
-            <i v-for="stella in (5 - series.stellePiene)" class="far fa-star"></i>
-          </li>
-        </ul>
+        <!-- Sezione Film -->
+        <div id="film" class="film_section">
+          <div class="card_film" v-for="film in films">
+            <div class="overlay">
+              <div class="info_box">
+                <p>Titolo: {{film.title}}</p>
+                <p>Titolo originale: {{film.original_title}}</p>
+                <p>Lingua:</p>
+                <img class="flag" v-if="film.original_language == 'en' " src="https://www.countryflags.io/gb/flat/64.png" alt="">
+                <img class="flag" v-else-if="film.original_language == 'it' " src="https://www.countryflags.io/it/flat/64.png" alt="">
+                <img class="flag" v-else-if="film.original_language == 'ja' " src="https://www.countryflags.io/jp/flat/64.png" alt="">
+                <p v-else>lingua: {{film.original_language}} </p>
+                <p> Voto:
+                  <i v-for="stella in film.stellePiene" class="fas fa-star"></i>
+                  <i v-for="stella in (5 - film.stellePiene)" class="far fa-star"></i>
+                </p>
+                <p>Overview: {{film.overview}}</p>
+              </div>
+            </div>
+            <img v-if="film.poster" :src="film.poster" alt="">
+            <img v-else src="img/poster-placeholder.png" id="senza_img" alt="">
+          </div>
+        </div>
+
+
+        <!-- Sezione Serie TV -->
+        <div id="series" class="tvseries_section">
+          <div class="card_series" v-for="series in tvSeries">
+            <div class="overlay">
+              <div class="info_box">
+                <p>Titolo: {{series.name}}</p>
+                <p>Titolo originale: {{series.original_name}}</p>
+                <p>Lingua:</p>
+                <img class="flag" v-if="series.original_language == 'en' " src="https://www.countryflags.io/gb/flat/64.png" alt="">
+                <img class="flag" v-else-if="series.original_language == 'it' " src="https://www.countryflags.io/it/flat/64.png" alt="">
+                <img class="flag" v-else-if="series.original_language == 'ja' " src="https://www.countryflags.io/jp/flat/64.png" alt="">
+                <p v-else>lingua: {{series.original_language}} </p>
+                <p> Voto:
+                  <i v-for="stella in series.stellePiene" class="fas fa-star"></i>
+                  <i v-for="stella in (5 - series.stellePiene)" class="far fa-star"></i>
+                </p>
+                <p>Overview: {{series.overview}}</p>
+              </div>
+            </div>
+            <img v-if="series.poster" :src="series.poster" alt="">
+            <img v-else src="img/poster-placeholder.png" id="senza_img" alt="">
+          </div>
+        </div>
+
+
       </div>
 
     </main>
 
   </div>
+
+
+
+
+
 
 
 
